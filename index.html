@@ -3,150 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIMO - Login & Register</title>
+    <title>VIMO - Classic Original</title>
     
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6967c2ba8200d5197fd8cf73/1jeul1af4';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
     <style>
+        /* AAPKI ORIGINAL DRESSING - NO CHANGES */
         :root { --primary-green: #2ecc71; --overlay-blue: rgba(35, 55, 75, 0.88); }
         body { margin: 0; font-family: 'Arial', sans-serif; background: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop') no-repeat center center fixed; background-size: cover; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .overlay { background: var(--overlay-blue); width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; position: relative; }
         .left-icons { position: absolute; top: 25px; left: 20px; display: flex; gap: 15px; }
         .left-icons img { width: 32px; filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); }
-        .service-icon { position: absolute; top: 25px; right: 25px; text-align: center; color: white; text-decoration: none; font-size: 13px; cursor: pointer; border: none; background: transparent; outline: none; }
+        .service-icon { position: absolute; top: 25px; right: 25px; text-align: center; color: white; cursor: pointer; border: none; background: transparent; }
         .service-icon img { width: 38px; display: block; margin: 0 auto 3px; filter: drop-shadow(0 0 5px black); }
         .container { width: 90%; max-width: 380px; text-align: center; margin-top: 70px; }
-        /* VIMO logo remains untranslated */
-        .notranslate { font-family: 'Arial Black', sans-serif !important; } 
         .logo { font-size: 68px; font-weight: 900; color: #ff7675; letter-spacing: -2px; margin-bottom: 0px; }
         .page-title { font-size: 28px; margin-bottom: 35px; font-weight: 300; }
         .input-group { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; margin-bottom: 20px; display: flex; align-items: center; padding: 14px 18px; }
         .input-group img:first-child { width: 22px; margin-right: 15px; border-right: 1px dashed rgba(255,255,255,0.5); padding-right: 12px; }
         input { background: transparent; border: none; color: white; outline: none; width: 100%; font-size: 18px; }
-        .eye-btn { cursor: pointer; width: 22px !important; border: none !important; padding: 0 !important; opacity: 0.8; }
-        .remember-sec { display: flex; align-items: center; gap: 10px; font-size: 15px; margin-bottom: 15px; width: 100%; justify-content: flex-start; }
         .btn-main { background: var(--primary-green); border-radius: 12px; padding: 18px; width: 100%; border: none; color: white; font-size: 22px; font-weight: bold; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
         .btn-sub { background: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: 35px; padding: 14px; width: 100%; color: white; margin-top: 25px; cursor: pointer; font-size: 16px; }
-        .lang-sec { margin-top: 45px; margin-bottom: 20px; }
-        .lang-btn { background: rgba(255,255,255,0.08); border: 1px solid white; color: white; padding: 8px 25px; cursor: pointer; border-radius: 5px; font-size: 14px; }
         
-        /* Language Overlay Styling */
+        /* Language Overlay Style */
         #langOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; color: black; display: none; flex-direction: column; z-index: 10000; }
         .lang-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
-        .search-bar { width: 70%; padding: 10px; border: 1px solid #ccc; border-radius: 20px; outline: none; font-size: 16px; color: black !important;}
+        .search-bar { width: 80%; padding: 12px; border: 1px solid #ddd; border-radius: 25px; color: black !important; }
         .lang-list { flex: 1; overflow-y: auto; padding: 10px; }
-        .lang-item { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #f9f9f9; cursor: pointer; }
+        .lang-item { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #f2f2f2; cursor: pointer; }
         .flag { font-size: 24px; margin-right: 15px; }
-        .lang-name { font-size: 18px; font-weight: 500; }
-        #google_translate_element { display: none; }
+        .lang-name { font-size: 17px; font-weight: 500; }
         .page { display: none; width: 100%; flex-direction: column; align-items: center; }
         .active { display: flex; }
     </style>
 </head>
 <body>
-    <div id="google_translate_element"></div>
-
     <div class="overlay">
         <div class="left-icons">
-            <a href="https://t.me/vimo99film" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG"></a>
-            <a href="https://whatsapp.com/channel/0029Vb77Ct2GzzKbIUi2EG0a" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WA"></a>
+            <a href="https://t.me/vimo99film" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"></a>
+            <a href="https://whatsapp.com/channel/0029Vb77Ct2GzzKbIUi2EG0a" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
         </div>
 
-        <div onclick="Tawk_API.toggle()" class="service-icon">
+        <div class="service-icon" id="service-btn">
             <img src="https://cdn-icons-png.flaticon.com/512/126/126432.png">
-            <span id="service-label">Service</span>
+            <span id="txt-service">Service</span>
         </div>
 
         <div id="loginPage" class="page active">
             <div class="container">
-                <div class="logo notranslate">VIMO</div>
-                <div class="page-title" id="login-title">Log in</div>
+                <div class="logo">VIMO</div>
+                <div class="page-title" id="txt-login-title">Log in</div>
                 <div class="input-group">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
-                    <input type="number" id="lPhone" placeholder="Enter mobile number">
+                    <input type="number" id="lPhone" placeholder="Mobile number">
                 </div>
                 <div class="input-group">
                     <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
                     <input type="password" id="lPass" placeholder="Password">
                 </div>
-                <div class="remember-sec">
-                    <input type="checkbox" checked style="width:18px;height:18px;">
-                    <span id="remember-label">Remember Password</span>
-                </div>
-                <button class="btn-main" onclick="doLogin()">Login</button>
-                <button class="btn-sub" onclick="goPage('regPage')">No account? Register</button>
+                <button class="btn-main" id="txt-login-btn" onclick="handleLogin()">Login Success!</button>
+                <button class="btn-sub" id="txt-goto-reg" onclick="showPage('regPage')">No account? Register</button>
             </div>
         </div>
 
         <div id="regPage" class="page">
             <div class="container">
-                <div class="logo notranslate">VIMO</div>
-                <div class="page-title">Register</div>
-                <button class="btn-main" onclick="doReg()">Register now</button>
-                <button class="btn-sub" onclick="goPage('loginPage')">Already have account? Log in</button>
+                <div class="logo">VIMO</div>
+                <div class="page-title" id="txt-reg-title">Register</div>
+                <div class="input-group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+                    <input type="number" id="rPhone" placeholder="Mobile number">
+                </div>
+                <div class="input-group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
+                    <input type="password" id="rPass" placeholder="Password (Min 8 Digits)">
+                </div>
+                <div class="input-group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
+                    <input type="password" id="rCPass" placeholder="Confirm Password">
+                </div>
+                <div class="input-group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/912/912318.png">
+                    <input type="text" id="invCode" placeholder="Invitation Code">
+                </div>
+                <button class="btn-main" id="txt-reg-btn" onclick="handleRegister()">Register now</button>
+                <button class="btn-sub" id="txt-goto-login" onclick="showPage('loginPage')">Already have account? Log in</button>
             </div>
         </div>
 
-        <div class="lang-sec">
-            <button class="lang-btn" onclick="openLang()">Language / भाषा</button>
+        <div style="margin-top: 40px;">
+            <button class="btn-sub" onclick="openLang()" style="padding: 10px 30px; border-radius: 5px;">Language / भाषा</button>
         </div>
     </div>
 
-    <div id="langOverlay" class="notranslate">
+    <div id="langOverlay">
         <div class="lang-header">
-            <input type="text" class="search-bar" id="langSearch" placeholder="Search..." onkeyup="filterLanguages()">
-            <button onclick="closeLang()" style="border:none; background:none; font-size:25px; cursor:pointer;">&times;</button>
+            <input type="text" class="search-bar" id="langSearch" placeholder="Search language..." onkeyup="filterLangs()">
+            <button onclick="closeLang()" style="border:none; background:none; font-size:35px;">&times;</button>
         </div>
         <div class="lang-list" id="list-container"></div>
     </div>
-
     <script>
-        // Language List with Native Names
-        const languages = [
-            { name: "English", native: "English", code: "en", flag: "🇺🇸" },
-            { name: "Hindi", native: "हिन्दी", code: "hi", flag: "🇮🇳" },
-            { name: "Japanese", native: "日本語", code: "ja", flag: "🇯🇵" },
-            { name: "Spanish", native: "Español", code: "es", flag: "🇪🇸" },
-            { name: "Arabic", native: "العربية", code: "ar", flag: "🇸🇦" },
-            { name: "Bengali", native: "বাংলা", code: "bn", flag: "🇧🇩" },
-            { name: "Portuguese", native: "Português", code: "pt", flag: "🇵🇹" },
-            { name: "Russian", native: "Русский", code: "ru", flag: "🇷🇺" }
+        // PART 2: THE GLOBAL NATION LIST (195+ Countries Data)
+        // Har desh ka naam uski apni asli bhasha mein
+        const countries = [
+            { name: "Afghanistan", native: "افغانستان", code: "ps", flag: "🇦🇫" },
+            { name: "Albania", native: "Shqipëria", code: "sq", flag: "🇦🇱" },
+            { name: "Algeria", native: "الجزائر", code: "ar", flag: "🇩🇿" },
+            { name: "Andorra", native: "Andorra", code: "ca", flag: "🇦🇩" },
+            { name: "Angola", native: "Angola", code: "pt", flag: "🇦🇴" },
+            { name: "Argentina", native: "Argentina", code: "es", flag: "🇦🇷" },
+            { name: "Armenia", native: "Հայաստան", code: "hy", flag: "🇦🇲" },
+            { name: "Australia", native: "Australia", code: "en", flag: "🇦🇺" },
+            { name: "Austria", native: "Österreich", code: "de", flag: "🇦🇹" },
+            { name: "Azerbaijan", native: "Azərbaycan", code: "az", flag: "🇦🇿" },
+            { name: "Bahrain", native: "البحرين", code: "ar", flag: "🇧🇭" },
+            { name: "Bangladesh", native: "বাংলাদেশ", code: "bn", flag: "🇧🇩" },
+            { name: "Belarus", native: "Беларусь", code: "be", flag: "🇧🇾" },
+            { name: "Belgium", native: "België", code: "nl", flag: "🇧🇪" },
+            { name: "Bhutan", native: "འབྲུག་ཡུལ་", code: "dz", flag: "🇧🇹" },
+            { name: "Bolivia", native: "Bolivia", code: "es", flag: "🇧🇴" },
+            { name: "Bosnia", native: "Bosna i Hercegovina", code: "bs", flag: "🇧🇦" },
+            { name: "Brazil", native: "Brasil", code: "pt", flag: "🇧🇷" },
+            { name: "Bulgaria", native: "България", code: "bg", flag: "🇧🇬" },
+            { name: "Cambodia", native: "កម្ពុជា", code: "km", flag: "🇰🇭" },
+            { name: "Canada", native: "Canada", code: "en", flag: "🇨🇦" },
+            { name: "Chile", native: "Chile", code: "es", flag: "🇨🇱" },
+            { name: "China", native: "中国", code: "zh", flag: "🇨🇳" },
+            { name: "Colombia", native: "Colombia", code: "es", flag: "🇨🇴" },
+            { name: "Croatia", native: "Hrvatska", code: "hr", flag: "🇭🇷" },
+            { name: "Cuba", native: "Cuba", code: "es", flag: "🇨🇺" },
+            { name: "Cyprus", native: "Κύπρος", code: "el", flag: "🇨🇾" },
+            { name: "Czech Republic", native: "Česko", code: "cs", flag: "🇨🇿" },
+            { name: "Denmark", native: "Danmark", code: "da", flag: "🇩🇰" },
+            { name: "Egypt", native: "مصر", code: "ar", flag: "🇪🇬" },
+            { name: "Ethiopia", native: "ኢትዮጵያ", code: "am", flag: "🇪🇹" },
+            { name: "Finland", native: "Suomi", code: "fi", flag: "🇫🇮" },
+            { name: "France", native: "France", code: "fr", flag: "🇫🇷" },
+            { name: "Georgia", native: "საქართველო", code: "ka", flag: "🇬🇪" },
+            { name: "Germany", native: "Deutschland", code: "de", flag: "🇩🇪" },
+            { name: "Greece", native: "Ελλάδα", code: "el", flag: "🇬🇷" },
+            { name: "Hungary", native: "Magyarország", code: "hu", flag: "🇭🇺" },
+            { name: "Iceland", native: "Ísland", code: "is", flag: "🇮🇸" },
+            { name: "India", native: "भारत (Hindi)", code: "hi", flag: "🇮🇳" },
+            { name: "Indonesia", native: "Indonesia", code: "id", flag: "🇮🇩" },
+            { name: "Iran", native: "ایران", code: "fa", flag: "🇮🇷" },
+            { name: "Iraq", native: "العراق", code: "ar", flag: "🇮🇶" },
+            { name: "Ireland", native: "Éire", code: "ga", flag: "🇮🇪" },
+            { name: "Israel", native: "יִשְׂרָאֵל", code: "he", flag: "🇮🇱" },
+            { name: "Italy", native: "Italia", code: "it", flag: "🇮🇹" },
+            { name: "Japan", native: "日本", code: "ja", flag: "🇯🇵" },
+            { name: "Jordan", native: "الأردن", code: "ar", flag: "🇯🇴" },
+            { name: "Kazakhstan", native: "Қазақстан", code: "kk", flag: "🇰🇿" },
+            { name: "Kenya", native: "Kenya", code: "sw", flag: "🇰🇪" },
+            { name: "Kuwait", native: "الكويت", code: "ar", flag: "🇰🇼" },
+            { name: "Laos", native: "ລາວ", code: "lo", flag: "🇱🇦" },
+            { name: "Lebanon", native: "لبنان", code: "ar", flag: "🇱🇧" },
+            { name: "Libya", native: "ليبيا", code: "ar", flag: "🇱🇾" },
+            { name: "Malaysia", native: "Malaysia", code: "ms", flag: "🇲🇾" },
+            { name: "Maldives", native: "ދިވެހިރާއްޖެ", code: "dv", flag: "🇲🇻" },
+            { name: "Mexico", native: "México", code: "es", flag: "🇲🇽" },
+            { name: "Mongolia", native: "Монгол улс", code: "mn", flag: "🇲🇳" },
+            { name: "Morocco", native: "المغرب", code: "ar", flag: "🇲🇦" },
+            { name: "Myanmar", native: "မြန်မာ", code: "my", flag: "🇲🇲" },
+            { name: "Nepal", native: "नेपाल", code: "ne", flag: "🇳🇵" },
+            { name: "Netherlands", native: "Nederland", code: "nl", flag: "🇳🇱" },
+            { name: "New Zealand", native: "New Zealand", code: "en", flag: "🇳🇿" },
+            { name: "Nigeria", native: "Nigeria", code: "en", flag: "🇳🇬" },
+            { name: "North Korea", native: "조선", code: "ko", flag: "🇰🇵" },
+            { name: "Norway", native: "Norge", code: "no", flag: "🇳🇴" },
+            { name: "Oman", native: "عمان", code: "ar", flag: "🇴🇲" },
+            { name: "Pakistan", native: "پاکستان", code: "ur", flag: "🇵🇰" },
+            { name: "Palestine", native: "فلسطين", code: "ar", flag: "🇵🇸" },
+            { name: "Philippines", native: "Pilipinas", code: "tl", flag: "🇵🇭" },
+            { name: "Poland", native: "Polska", code: "pl", flag: "🇵🇱" },
+            { name: "Portugal", native: "Portugal", code: "pt", flag: "🇵🇹" },
+            { name: "Qatar", native: "قطر", code: "ar", flag: "🇶🇦" },
+            { name: "Romania", native: "România", code: "ro", flag: "🇷🇴" },
+            { name: "Russia", native: "Россия", code: "ru", flag: "🇷🇺" },
+            { name: "Saudi Arabia", native: "السعودية", code: "ar", flag: "🇸🇦" },
+            { name: "Serbia", native: "Србија", code: "sr", flag: "🇷🇸" },
+            { name: "Singapore", native: "Singapore", code: "en", flag: "🇸🇬" },
+            { name: "South Africa", native: "South Africa", code: "en", flag: "🇿🇦" },
+            { name: "South Korea", native: "한국", code: "ko", flag: "🇰🇷" },
+            { name: "Spain", native: "España", code: "es", flag: "🇪🇸" },
+            { name: "Sri Lanka", native: "ශ්‍රී ලංකාව", code: "si", flag: "🇱🇰" },
+            { name: "Sweden", native: "Sverige", code: "sv", flag: "🇸🇪" },
+            { name: "Switzerland", native: "Schweiz", code: "de", flag: "🇨🇭" },
+            { name: "Syria", native: "سوريا", code: "ar", flag: "🇸🇾" },
+            { name: "Taiwan", native: "台灣", code: "zh", flag: "🇹🇼" },
+            { name: "Thailand", native: "ไทย", code: "th", flag: "🇹🇭" },
+            { name: "Turkey", native: "Türkiye", code: "tr", flag: "🇹🇷" },
+            { name: "Ukraine", native: "Україна", code: "uk", flag: "🇺🇦" },
+            { name: "UAE", native: "الإمارات", code: "ar", flag: "🇦🇪" },
+            { name: "UK", native: "United Kingdom", code: "en", flag: "🇬🇧" },
+            { name: "USA", native: "United States", code: "en", flag: "🇺🇸" },
+            { name: "Uzbekistan", native: "Oʻzbekiston", code: "uz", flag: "🇺🇿" },
+            { name: "Vietnam", native: "Việt Nam", code: "vi", flag: "🇻🇳" },
+            { name: "Yemen", native: "اليمن", code: "ar", flag: "🇾🇪"  
+                 { name: "Zimbabwe", native: "Zimbabwe", code: "en", flag: "🇿🇼" },
+            { name: "Zambia", native: "Zambia", code: "en", flag: "🇿🇲" },
+            { name: "Venezuela", native: "Venezuela", code: "es", flag: "🇻🇪" },
+            { name: "Uruguay", native: "Uruguay", code: "es", flag: "🇺🇾" },
+            { name: "Tunisia", native: "تونس", code: "ar", flag: "🇹🇳" },
+            { name: "Tanzania", native: "Tanzania", code: "sw", flag: "🇹🇿" },
+            { name: "Sudan", native: "السودان", code: "ar", flag: "🇸🇩" },
+            { name: "Slovakia", native: "Slovensko", code: "sk", flag: "🇸🇰" },
+            { name: "Senegal", native: "Sénégal", code: "fr", flag: "🇸🇳" },
+            { name: "Peru", native: "Perú", code: "es", flag: "🇵🇪" },
+            { name: "Panama", native: "Panamá", code: "es", flag: "🇵🇦" },
+            { name: "Nigeria", native: "Nigeria", code: "en", flag: "🇳🇬" },
+            { name: "Niger", native: "Niger", code: "fr", flag: "🇳🇪" },
+            { name: "Monaco", native: "Monaco", code: "fr", flag: "🇲🇨" },
+            { name: "Mali", native: "Mali", code: "fr", flag: "🇲🇱" },
+            { name: "Luxembourg", native: "Luxembourg", code: "lb", flag: "🇱🇺" },
+            { name: "Lithuania", native: "Lietuva", code: "lt", flag: "🇱🇹" },
+            { name: "Latvia", native: "Latvija", code: "lv", flag: "🇱🇻" },
+            { name: "Jamaica", native: "Jamaica", code: "en", flag: "🇯🇲" },
+            { name: "Haiti", native: "Haïti", code: "fr", flag: "🇭🇹" },
+            { name: "Ghana", native: "Ghana", code: "en", flag: "🇬🇭" },
+            { name: "Estonia", native: "Eesti", code: "et", flag: "🇪🇪" },
+            { name: "Ecuador", native: "Ecuador", code: "es", flag: "🇪🇨" }
+                        { name: "Zimbabwe", native: "Zimbabwe", code: "en", flag: "🇿🇼" },
+            { name: "Zambia", native: "Zambia", code: "en", flag: "🇿🇲" },
+            { name: "Venezuela", native: "Venezuela", code: "es", flag: "🇻🇪" },
+            { name: "Uruguay", native: "Uruguay", code: "es", flag: "🇺🇾" },
+            { name: "Tunisia", native: "تونس", code: "ar", flag: "🇹🇳" },
+            { name: "Tanzania", native: "Tanzania", code: "sw", flag: "🇹🇿" },
+            { name: "Sudan", native: "السودان", code: "ar", flag: "🇸🇩" },
+            { name: "Slovakia", native: "Slovensko", code: "sk", flag: "🇸🇰" },
+            { name: "Senegal", native: "Sénégal", code: "fr", flag: "🇸🇳" },
+            { name: "Peru", native: "Perú", code: "es", flag: "🇵🇪" },
+            { name: "Panama", native: "Panamá", code: "es", flag: "🇵🇦" },
+            { name: "Nigeria", native: "Nigeria", code: "en", flag: "🇳🇬" },
+            { name: "Niger", native: "Niger", code: "fr", flag: "🇳🇪" },
+            { name: "Monaco", native: "Monaco", code: "fr", flag: "🇲🇨" },
+            { name: "Mali", native: "Mali", code: "fr", flag: "🇲🇱" },
+            { name: "Luxembourg", native: "Luxembourg", code: "lb", flag: "🇱🇺" },
+            { name: "Lithuania", native: "Lietuva", code: "lt", flag: "🇱🇹" },
+            { name: "Latvia", native: "Latvija", code: "lv", flag: "🇱🇻" },
+            { name: "Jamaica", native: "Jamaica", code: "en", flag: "🇯🇲" },
+            { name: "Haiti", native: "Haïti", code: "fr", flag: "🇭🇹" },
+            { name: "Ghana", native: "Ghana", code: "en", flag: "🇬🇭" },
+            { name: "Estonia", native: "Eesti", code: "et", flag: "🇪🇪" },
+            { name: "Ecuador", native: "Ecuador", code: "es", flag: "🇪🇨" }
+            // Aap aise hi 195+ deshon ko manually add kar sakte hain.
         ];
 
-        window.onload = () => {
-            // Check if user is already logged in
-            if(localStorage.getItem('vimoUser')) {
-                window.location.href = "home.html";
+        // MANUAL TRANSLATION DICTIONARY
+        const translations = {
+            "en": {
+                "service": "Service", "login-title": "Log in", "login-btn": "Login Success!",
+                "goto-reg": "No account? Register", "reg-title": "Register",
+                "reg-btn": "Register now", "goto-login": "Already have account? Log in",
+                "ph-phone": "Mobile number", "ph-pass": "Password", "ph-inv": "Invitation Code"
+            },
+            "ru": {
+                "service": "Обслуживание", "login-title": "Авторизоваться", "login-btn": "Успех логина!",
+                "goto-reg": "Нет аккаунта? Регистрация", "reg-title": "Регистрация",
+                "reg-btn": "Зарегистрироваться", "goto-login": "Уже есть аккаунт? Войти",
+                "ph-phone": "Номер телефона", "ph-pass": "Пароль", "ph-inv": "Код приглашения"
+            },
+            "hi": {
+                "service": "सेवा", "login-title": "लॉग इन करें", "login-btn": "लॉगिन सफल!",
+                "goto-reg": "खाता नहीं है? रजिस्टर करें", "reg-title": "रजिस्टर",
+                "reg-btn": "अभी रजिस्टर करें", "goto-login": "पहले से खाता है? लॉग इन करें",
+                "ph-phone": "मोबाइल नंबर", "ph-pass": "पासवर्ड", "ph-inv": "आमंत्रण कोड"
+            },
+            "ja": {
+                "service": "サービス", "login-title": "ログイン", "login-btn": "ログイン成功！",
+                "goto-reg": "アカウントをお持ちでないですか？登録", "reg-title": "登録",
+                "reg-btn": "今すぐ登録", "goto-login": "既にアカウントをお持ちですか？ログイン",
+                "ph-phone": "電話番号", "ph-pass": "パスワード", "ph-inv": "招待コード"
             }
-            // Apply saved language on load
-            const savedLang = localStorage.getItem('vimoLang');
-            if(savedLang) setTimeout(() => setLanguage(savedLang), 1000);
-            
-            renderLanguages(languages);
+            // Isme hum har language ka manual text add karenge.
         };
 
-        function renderLanguages(list) {
+        function setLanguage(code) {
+            const data = translations[code] || translations["en"];
+            
+            // Text Badalne ka Logic
+            document.getElementById('txt-service').innerText = data["service"];
+            document.getElementById('txt-login-title').innerText = data["login-title"];
+            document.getElementById('txt-login-btn').innerText = data["login-btn"];
+            document.getElementById('txt-goto-reg').innerText = data["goto-reg"];
+            document.getElementById('txt-reg-title').innerText = data["reg-title"];
+            document.getElementById('txt-reg-btn').innerText = data["reg-btn"];
+            document.getElementById('txt-goto-login').innerText = data["goto-login"];
+
+            // Placeholders Badalne ka Logic
+            document.querySelectorAll('input').forEach(input => {
+                if(input.id.includes('Phone')) input.placeholder = data["ph-phone"];
+                if(input.id.includes('Pass')) input.placeholder = data["ph-pass"];
+                if(input.id === 'invCode') input.placeholder = data["ph-inv"];
+            });
+
+            localStorage.setItem('vimoLang', code);
+            closeLang();
+        }
+        // PART 4: AUTO-SWITCH LOGIC & SEARCH FUNCTIONALITY
+        
+        function renderLangs(list) {
             const container = document.getElementById('list-container');
             container.innerHTML = list.map(l => `
                 <div class="lang-item" onclick="setLanguage('${l.code}')">
@@ -156,41 +311,342 @@
             `).join('');
         }
 
-        function setLanguage(langCode) {
-            localStorage.setItem('vimoLang', langCode); // Save for Home Page
-            const select = document.querySelector('.goog-te-combo');
-            if(select) {
-                select.value = langCode;
-                select.dispatchEvent(new Event('change'));
-            }
-            closeLang();
+        // Search Filter Logic
+        function filterLangs() {
+            const term = document.getElementById('langSearch').value.toLowerCase();
+            const filtered = countries.filter(c => 
+                c.name.toLowerCase().includes(term) || 
+                c.native.toLowerCase().includes(term)
+            );
+            renderLangs(filtered);
         }
 
-        function doLogin() {
-            // Basic Login Logic
+        // Home Page Auto-Switch Fix
+        function handleLogin() {
             const phone = document.getElementById('lPhone').value;
             const pass = document.getElementById('lPass').value;
             
             if(phone && pass) {
-                localStorage.setItem('vimoUser', phone); // Mark as Logged In
-                window.location.href = "home.html"; // Go to Home
+                // User status save karna
+                localStorage.setItem('vimoUser', 'active');
+                
+                // Jo language abhi set hai, use confirm karna
+                const currentLang = localStorage.getItem('vimoLang') || 'en';
+                localStorage.setItem('vimoLang', currentLang);
+                
+                // Home page par bhejna
+                window.location.href = 'home.html';
             } else {
                 alert("Please enter details");
             }
         }
 
-        function goPage(id) {
+        function handleRegister() {
+            // Register logic yahan aayegi
+            alert("Account Created! Now please login.");
+            showPage('loginPage');
+        }
+
+        function openLang() { 
+            document.getElementById('langOverlay').style.display = 'flex'; 
+            renderLangs(countries); 
+        }
+        
+        function closeLang() { 
+            document.getElementById('langOverlay').style.display = 'none'; 
+        }
+
+        function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(id).classList.add('active');
         }
 
-        function openLang() { document.getElementById('langOverlay').style.display = 'flex'; }
-        function closeLang() { document.getElementById('langOverlay').style.display = 'none'; }
-        function filterLanguages() {
-            const term = document.getElementById('langSearch').value.toLowerCase();
-            const filtered = languages.filter(l => l.name.toLowerCase().includes(term) || l.native.toLowerCase().includes(term));
-            renderLanguages(filtered);
+        // Window Load par Language Restore karna
+        window.onload = () => {
+            const savedLang = localStorage.getItem('vimoLang');
+            if(savedLang) {
+                setLanguage(savedLang);
+            }
+        };
+    </script>
+</body>
+</html>
+        // PART 5 (RE-EXPANDED): MANUAL TRANSLATION DICTIONARY (NO GOOGLE DEPENDENCY)
+        
+        Object.assign(translations, {
+            "it": { // Italy
+                "service": "Servizio", "login-title": "Accedi", "login-btn": "Accesso riuscito!",
+                "goto-reg": "Non hai un account? Registrati", "reg-title": "Registrati",
+                "reg-btn": "Registrati ora", "goto-login": "Hai già un account? Accedi",
+                "ph-phone": "Numero di cellulare", "ph-pass": "Parola d'ordine", "ph-inv": "Codice di invito"
+            },
+            "th": { // Thailand
+                "service": "บริการ", "login-title": "เข้าสู่ระบบ", "login-btn": "เข้าสู่ระบบสำเร็จ!",
+                "goto-reg": "ไม่มีบัญชี? ลงทะเบียน", "reg-title": "ลงทะเบียน",
+                "reg-btn": "ลงทะเบียนตอนนี้", "goto-login": "มีบัญชีอยู่แล้ว? เข้าสู่ระบบ",
+                "ph-phone": "หมายเลขโทรศัพท์มือถือ", "ph-pass": "รหัสผ่าน", "ph-inv": "รหัสเชิญ"
+            },
+            "ko": { // South Korea
+                "service": "서비스", "login-title": "로그인", "login-btn": "로그인 성공!",
+                "goto-reg": "계정이 없으신가요? 등록", "reg-title": "등록",
+                "reg-btn": "지금 등록", "goto-login": "이미 계정이 있습니까? 로그인",
+                "ph-phone": "휴대전화 번호", "ph-pass": "비밀번호", "ph-inv": "초대 코드"
+            },
+            "ur": { // Pakistan
+                "service": "سروس", "login-title": "لاگ ان کریں", "login-btn": "لاگ ان کامیاب!",
+                "goto-reg": "اکاؤنٹ نہیں ہے؟ رجسٹر کریں", "reg-title": "رجسٹر کریں",
+                "reg-btn": "ابھی رجسٹر کریں", "goto-login": "پہلے سے اکاؤنٹ ہے؟ لاگ ان کریں",
+                "ph-phone": "موبائل نمبر", "ph-pass": "پاس ورڈ", "ph-inv": "دعوت نامہ کوڈ"
+            },
+            "fa": { // Iran
+                "service": "سرویس", "login-title": "ورود", "login-btn": "ورود موفقیت آمیز بود!",
+                "goto-reg": "حساب کاربری ندارید؟ ثبت نام کنید", "reg-title": "ثبت نام",
+                "reg-btn": "اکنون ثبت نام کنید", "goto-login": "از قبل حساب کاربری دارید؟ وارد شوید",
+                "ph-phone": "شماره موبایل", "ph-pass": "رمز عبور", "ph-inv": "کد دعوت"
+            },
+            "uk": { // Ukraine
+                "service": "Сервіс", "login-title": "Увійти", "login-btn": "Успішний вхід!",
+                "goto-reg": "Немає облікового запису? Реєстрація", "reg-title": "Реєстрація",
+                "reg-btn": "Зареєструватися зараз", "goto-login": "Вже є аккаунт? Увійти",
+                "ph-phone": "Номер мобільного", "ph-pass": "Пароль", "ph-inv": "Код запрошення"
+            },
+            "pl": { // Poland
+                "service": "Usługa", "login-title": "Zaloguj się", "login-btn": "Logowanie udane!",
+                "goto-reg": "Nie masz konta? Zarejestruj się", "reg-title": "Rejestracja",
+                "reg-btn": "Zarejestruj się teraz", "goto-login": "Masz już konto? Zaloguj się",
+                "ph-phone": "Numer telefonu", "ph-pass": "Hasło", "ph-inv": "Kod zaproszenia"
+            },
+            "nl": { // Netherlands
+                "service": "Dienst", "login-title": "Inloggen", "login-btn": "Inloggen geslaagd!",
+                "goto-reg": "Geen account? Registreren", "reg-title": "Registreren",
+                "reg-btn": "Nu registreren", "goto-login": "Heb je al een account? Inloggen",
+                "ph-phone": "Mobiel nummer", "ph-pass": "Wachtwoord", "ph-inv": "Uitnodigingscode"
+            },
+            "sv": { // Sweden
+                "service": "Tjänst", "login-title": "Logga in", "login-btn": "Inloggning lyckades!",
+                "goto-reg": "Inget konto? Registrera", "reg-title": "Registrera",
+                "reg-btn": "Registrera nu", "goto-login": "Har du redan ett konto? Logga in",
+                "ph-phone": "Mobilnummer", "ph-pass": "Lösenord", "ph-inv": "Inbjudningskod"
+            },
+            "el": { // Greece
+                "service": "Υπηρεσία", "login-title": "Σύνδεση", "login-btn": "Επιτυχής σύνδεση!",
+                "goto-reg": "Δεν έχετε λογαριασμό; Εγγραφή", "reg-title": "Εγγραφή",
+                "reg-btn": "Εγγραφείτε τώρα", "goto-login": "Έχετε ήδη λογαριασμό; Σύνδεση",
+                "ph-phone": "Αριθμός κινητού", "ph-pass": "Κωδικός πρόσβασης", "ph-inv": "Κωδικός πρόσκλησης"
+            }
+        });
+                // PART 6: PURE MANUAL TRANSLATION (NO GOOGLE - NO EXTERNAL DEPENDENCY)
+        
+        Object.assign(translations, {
+            "sw": { // Tanzania, Kenya, Uganda (Swahili)
+                "service": "Huduma", "login-title": "Ingia", "login-btn": "Ingia Imefanikiwa!",
+                "goto-reg": "Huna akaunti? Jisajili", "reg-title": "Jisajili",
+                "reg-btn": "Jisajili sasa", "goto-login": "Tayari una akaunti? Ingia",
+                "ph-phone": "Namba ya simu", "ph-pass": "Nywila", "ph-inv": "Msimbo wa mwaliko"
+            },
+            "ro": { // Romania
+                "service": "Serviciu", "login-title": "Autentificare", "login-btn": "Autentificare reușită!",
+                "goto-reg": "Nu ai cont? Înregistrează-te", "reg-title": "Înregistrare",
+                "reg-btn": "Înregistrează-te acum", "goto-login": "Ai deja cont? Autentifică-te",
+                "ph-phone": "Număr de mobil", "ph-pass": "Parolă", "ph-inv": "Cod de invitație"
+            },
+            "hu": { // Hungary
+                "service": "Szolgáltatás", "login-title": "Bejelentkezés", "login-btn": "Sikeres bejelentkezés!",
+                "goto-reg": "Nincs fiókja? Regisztráció", "reg-title": "Regisztráció",
+                "reg-btn": "Regisztráljon most", "goto-login": "Már van fiókja? Belépés",
+                "ph-phone": "Mobilszám", "ph-pass": "Jelszó", "ph-inv": "Meghívó kód"
+            },
+            "cs": { // Czech Republic
+                "service": "Služba", "login-title": "Přihlásit se", "login-btn": "Přihlášení úspěšné!",
+                "goto-reg": "Nemáte účet? Registrovat", "reg-title": "Registrace",
+                "reg-btn": "Zaregistrovat se", "goto-login": "Již máte účet? Přihlásit se",
+                "ph-phone": "Mobilní číslo", "ph-pass": "Heslo", "ph-inv": "Zvací kód"
+            },
+            "pt-BR": { // Brazil (Portuguese)
+                "service": "Serviço", "login-title": "Conectar", "login-btn": "Sucesso no login!",
+                "goto-reg": "Não tem uma conta? Cadastre-se", "reg-title": "Cadastro",
+                "reg-btn": "Cadastre-se agora", "goto-login": "Já tem uma conta? Entrar",
+                "ph-phone": "Número de celular", "ph-pass": "Senha", "ph-inv": "Código de convite"
+            },
+            "bg": { // Bulgaria
+                "service": "Услуга", "login-title": "Вход", "login-btn": "Успешен вход!",
+                "goto-reg": "Нямате акаунт? Регистрирайте се", "reg-title": "Регистрация",
+                "reg-btn": "Регистрирайте се сега", "goto-login": "Вече имате акаунт? Влезте",
+                "ph-phone": "Мобилен номер", "ph-pass": "Парола", "ph-inv": "Код за покана"
+            },
+            "he": { // Israel (Hebrew)
+                "service": "שירות", "login-title": "התחברות", "login-btn": "התחברות הצליחה!",
+                "goto-reg": "אין לך חשבון? הרשם", "reg-title": "הרשמה",
+                "reg-btn": "הרשם עכשיו", "goto-login": "כבר יש לך חשבון? התחבר",
+                "ph-phone": "מספר נייד", "ph-pass": "סיסמה", "ph-inv": "קוד הזמנה"
+            },
+            "am": { // Ethiopia (Amharic)
+                "service": "አገልግሎት", "login-title": "ይግቡ", "login-btn": "መግቢያ ተሳክቷል!",
+                "goto-reg": "መለያ የለዎትም? ይመዝገቡ", "reg-title": "ይመዝገቡ",
+                "reg-btn": "አሁን ይመዝገቡ", "goto-login": "ቀድሞውኑ መለያ አለዎት? ይግቡ",
+                "ph-phone": "የሞባይል ቁጥር", "ph-pass": "የይለፍ ቃል", "ph-inv": "የግብዣ ኮድ"
+            }
+        });
+
+        // Yeh logic hardware level par language ko switch karega bina refresh ke
+        function updateUIVisuals(langCode) {
+            const dictionary = translations[langCode] || translations['en'];
+            
+            // Sabhi IDs ko target karke text badalna
+            const targets = [
+                ['txt-service', 'service'],
+                ['txt-login-title', 'login-title'],
+                ['txt-login-btn', 'login-btn'],
+                ['txt-goto-reg', 'goto-reg'],
+                ['txt-reg-title', 'reg-title'],
+                ['txt-reg-btn', 'reg-btn'],
+                ['txt-goto-login', 'goto-login']
+            ];
+
+            targets.forEach(t => {
+                const el = document.getElementById(t[0]);
+                if(el) el.innerText = dictionary[t[1]];
+            });
         }
+                // PART 7: MANUAL NATIVE TRANSLATION (CONTINUED - NO GOOGLE)
+        
+        Object.assign(translations, {
+            "ne": { // Nepal
+                "service": "सेवा", "login-title": "लगइन गर्नुहोस्", "login-btn": "लगइन सफल!",
+                "goto-reg": "खाता छैन? दर्ता गर्नुहोस्", "reg-title": "दर्ता गर्नुहोस्",
+                "reg-btn": "अहिले दर्ता गर्नुहोस्", "goto-login": "पहिले नै खाता छ? लगइन गर्नुहोस्",
+                "ph-phone": "मोबाइल नम्बर", "ph-pass": "पासवर्ड", "ph-inv": "निमन्त्रणा कोड"
+            },
+            "si": { // Sri Lanka (Sinhala)
+                "service": "සේවාව", "login-title": "ඇතුළු වන්න", "login-btn": "පිවිසීම සාර්ථකයි!",
+                "goto-reg": "ගිණුමක් නොමැතිද? ලියාපදිංචි වන්න", "reg-title": "ලියාපදිංචි වන්න",
+                "reg-btn": "දැන් ලියාපදිංචි වන්න", "goto-login": "දැනටමත් ගිණුමක් තිබේද? ඇතුළු වන්න",
+                "ph-phone": "ජංගම දුරකථන අංකය", "ph-pass": "මුරපදය", "ph-inv": "ආරාධනා කේතය"
+            },
+            "my": { // Myanmar (Burmese)
+                "service": "ဝန်ဆောင်မှု", "login-title": "လော့ဂ်အင်", "login-btn": "အောင်မြင်စွာ လော့ဂ်အင်ဝင်ပြီးပါပြီ။",
+                "goto-reg": "အကောင့်မရှိသေးဘူးလား? မှတ်ပုံတင်ရန်", "reg-title": "မှတ်ပုံတင်ရန်",
+                "reg-btn": "ယခုမှတ်ပုံတင်ရန်", "goto-login": "အကောင့်ရှိပြီးသားလား? လော့ဂ်အင်ဝင်ပါ",
+                "ph-phone": "မိုဘိုင်းဖုန်းနံပါတ်", "ph-pass": "စကားဝှက်", "ph-inv": "ဖိတ်ကြားချက်ကုဒ်"
+            },
+            "km": { // Cambodia (Khmer)
+                "service": "សេវាកម្ម", "login-title": "ចូល", "login-btn": "ចូលដោយជោគជ័យ!",
+                "goto-reg": "មិនមានគណនី? ចុះឈ្មោះ", "reg-title": "ចុះឈ្មោះ",
+                "reg-btn": "ចុះឈ្មោះឥឡូវនេះ", "goto-login": "មានគណនីរួចហើយ? ចូល",
+                "ph-phone": "លេខទូរស័ព្ទ", "ph-pass": "ពាក្យសម្ងាត់", "ph-inv": "លេខកូដអញ្ជើញ"
+            },
+            "uz": { // Uzbekistan
+                "service": "Xizmat", "login-title": "Kirish", "login-btn": "Muvaffaqiyatli kirish!",
+                "goto-reg": "Hisobingiz yo'qmi? Ro'yxatdan o'ting", "reg-title": "Ro'yxatdan o'tish",
+                "reg-btn": "Hozir ro'yxatdan o'ting", "goto-login": "Hisobingiz bormi? Kirish",
+                "ph-phone": "Mobil raqam", "ph-pass": "Parol", "ph-inv": "Taklif kodi"
+            },
+            "az": { // Azerbaijan
+                "service": "Xidmət", "login-title": "Daxil ol", "login-btn": "Giriş uğurludur!",
+                "goto-reg": "Hesabınız yoxdur? Qeydiyyatdan keçin", "reg-title": "Qeydiyyat",
+                "reg-btn": "İndi qeydiyyatdan keçin", "goto-login": "Artıq hesabınız var? Daxil olun",
+                "ph-phone": "Mobil nömrə", "ph-pass": "Şifrə", "ph-inv": "Dəvət kodu"
+            },
+            "hy": { // Armenia
+                "service": "Ծառայություն", "login-title": "Մուտք", "login-btn": "Մուտքը հաջողվեց:",
+                "goto-reg": "Չունե՞ք հաշիվ: Գրանցվել", "reg-title": "Գրանցում",
+                "reg-btn": "Գրանցվել հիմա", "goto-login": "Արդեն ունե՞ք հաշիվ: Մուտք գործել",
+                "ph-phone": "Բջջայինի համար", "ph-pass": "Գաղտնաբառ", "ph-inv": "Հրավերի կոဒը"
+            },
+            "ka": { // Georgia
+                "service": "სერვისი", "login-title": "შესვლა", "login-btn": "შესვლა წარმატებულია!",
+                "goto-reg": "არ გაქვთ ანგარიში? დარეგისტრირდით", "reg-title": "რეგისტრაცია",
+                "reg-btn": "დარეგისტრირდით ახლა", "goto-login": "უკვე გაქვთ ანგარიში? შესვლა",
+                "ph-phone": "მობილურის ნომერი", "ph-pass": "პაროლი", "ph-inv": "მოწვევის კოდი"
+            }
+        });
+                // PART 8: FINAL LANGUAGES & SYSTEM INITIALIZATION (NO GOOGLE)
+        
+        Object.assign(translations, {
+            "da": { // Denmark
+                "service": "Service", "login-title": "Log ind", "login-btn": "Login succes!",
+                "goto-reg": "Ingen konto? Registrer", "reg-title": "Registrer",
+                "reg-btn": "Registrer nu", "goto-login": "Har du allerede en konto? Log ind",
+                "ph-phone": "Mobilnummer", "ph-pass": "Adgangskode", "ph-inv": "Invitationskode"
+            },
+            "fi": { // Finland
+                "service": "Palvelu", "login-title": "Kirjaudu sisään", "login-btn": "Kirjautuminen onnistui!",
+                "goto-reg": "Eikö tiliä? Rekisteröidy", "reg-title": "Rekisteröidy",
+                "reg-btn": "Rekisteröidy nyt", "goto-login": "Onko sinulla jo tili? Kirjaudu sisään",
+                "ph-phone": "Matkapuhelinnumero", "ph-pass": "Salasana", "ph-inv": "Kutsukoodi"
+            },
+            "no": { // Norway
+                "service": "Tjeneste", "login-title": "Logg inn", "login-btn": "Innlogging vellykket!",
+                "goto-reg": "Ingen konto? Registrer", "reg-title": "Registrer",
+                "reg-btn": "Registrer nå", "goto-login": "Har du allerede en konto? Logg inn",
+                "ph-phone": "Mobilnummer", "ph-pass": "Passord", "ph-inv": "Invitasjonskode"
+            },
+            "tl": { // Philippines (Tagalog)
+                "service": "Serbisyo", "login-title": "Mag-login", "login-btn": "Matagumpay ang pag-login!",
+                "goto-reg": "Walang account? Magparehistro", "reg-title": "Magparehistro",
+                "reg-btn": "Magparehistro ngayon", "goto-login": "May account na? Mag-login",
+                "ph-phone": "Numero ng mobile", "ph-pass": "Password", "ph-inv": "Code ng imbitasyon"
+            },
+            "ms": { // Malaysia
+                "service": "Perkhidmatan", "login-title": "Log masuk", "login-btn": "Log masuk berjaya!",
+                "goto-reg": "Tiada akaun? Daftar", "reg-title": "Daftar",
+                "reg-btn": "Daftar sekarang", "goto-login": "Sudah mempunyai akaun? Log masuk",
+                "ph-phone": "Nombor telefon bimbit", "ph-pass": "Kata laluan", "ph-inv": "Kod jemputan"
+            }
+        });
+
+        // --- FINAL MASTER LOGIC ---
+        // Ye function placeholders ko manually badalta hai
+        function updatePlaceholders(data) {
+            const lPhone = document.getElementById('lPhone');
+            const lPass = document.getElementById('lPass');
+            const rPhone = document.getElementById('rPhone');
+            const rPass = document.getElementById('rPass');
+            const rCPass = document.getElementById('rCPass');
+            const invCode = document.getElementById('invCode');
+
+            if(lPhone) lPhone.placeholder = data["ph-phone"];
+            if(lPass) lPass.placeholder = data["ph-pass"];
+            if(rPhone) rPhone.placeholder = data["ph-phone"];
+            if(rPass) rPass.placeholder = data["ph-pass"];
+            if(rCPass) rCPass.placeholder = data["ph-pass"];
+            if(invCode) invCode.placeholder = data["ph-inv"];
+        }
+
+        // Language set karne ka main function (No Google)
+        function setLanguage(code) {
+            const data = translations[code] || translations["en"];
+            
+            // Text Content Updates
+            const elements = {
+                'txt-service': 'service',
+                'txt-login-title': 'login-title',
+                'txt-login-btn': 'login-btn',
+                'txt-goto-reg': 'goto-reg',
+                'txt-reg-title': 'reg-title',
+                'txt-reg-btn': 'reg-btn',
+                'txt-goto-login': 'goto-login'
+            };
+
+            for (let id in elements) {
+                const el = document.getElementById(id);
+                if(el) el.innerText = data[elements[id]];
+            }
+
+            // Placeholder Updates
+            updatePlaceholders(data);
+
+            // Persistence: Save to LocalStorage for Home.html
+            localStorage.setItem('vimoLang', code);
+            closeLang();
+            console.log("Language switched to: " + code);
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('vimoLang') || 'en';
+            setLanguage(saved);
+        });
     </script>
 </body>
 </html>
