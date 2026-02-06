@@ -1,302 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIMO - 195 Countries Manual Global</title>
-    <style>
-        /* AAPKI ORIGINAL DRESSING */
-        :root { --primary-green: #2ecc71; --overlay-blue: rgba(35, 55, 75, 0.95); }
-        body { margin: 0; font-family: 'Arial', sans-serif; background: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop') no-repeat center center fixed; background-size: cover; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
-        .overlay { background: var(--overlay-blue); width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; position: relative; overflow-y: auto; }
-        .left-icons { position: absolute; top: 25px; left: 20px; display: flex; gap: 15px; }
-        .left-icons img { width: 32px; filter: drop-shadow(0 0 5px rgba(0,0,0,0.3)); }
-        .service-icon { position: absolute; top: 25px; right: 25px; text-align: center; }
-        .service-icon img { width: 38px; display: block; margin-bottom: 3px; }
-        .container { width: 90%; max-width: 380px; text-align: center; margin-top: 50px; padding-bottom: 50px; }
-        .logo { font-size: 75px; font-weight: 900; color: #ff7675; letter-spacing: -4px; margin-bottom: 0px; }
-        .page-title { font-size: 26px; margin-bottom: 30px; font-weight: 300; }
-        .input-group { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; margin-bottom: 15px; display: flex; align-items: center; padding: 14px 18px; }
-        .input-group img { width: 22px; margin-right: 15px; border-right: 1px dashed rgba(255,255,255,0.4); padding-right: 12px; }
-        input { background: transparent; border: none; color: white; outline: none; width: 100%; font-size: 18px; }
-        .btn-main { background: var(--primary-green); border-radius: 12px; padding: 18px; width: 100%; border: none; color: white; font-size: 22px; font-weight: bold; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
-        .btn-sub { background: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: 35px; padding: 14px; width: 100%; color: white; margin-top: 25px; cursor: pointer; font-size: 16px; }
-        
-        /* Language System UI */
-        #langOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; color: #000; display: none; flex-direction: column; z-index: 99999; }
-        .lang-header { padding: 20px; background: #f1f3f4; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid #ddd; }
-        .search-bar { flex: 1; padding: 15px; border: 2px solid #2ecc71; border-radius: 10px; font-size: 18px; color: black; }
-        .lang-list { flex: 1; overflow-y: scroll; padding: 10px; }
-        .lang-item { display: flex; align-items: center; padding: 18px; border-bottom: 1px solid #eee; cursor: pointer; }
-        .flag { font-size: 28px; margin-right: 20px; }
-        .page { display: none; width: 100%; flex-direction: column; align-items: center; }
-        .active { display: flex; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIMO - 195 Countries Manual Global</title>
+
+<style>
+:root { --primary-green: #2ecc71; --overlay-blue: rgba(35,55,75,0.95); }
+body {
+margin:0;font-family:Arial,sans-serif;
+background:url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop') no-repeat center center fixed;
+background-size:cover;color:white;
+display:flex;justify-content:center;align-items:center;
+min-height:100vh;overflow:hidden;
+}
+.overlay {background:var(--overlay-blue);width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;position:relative;overflow-y:auto;}
+.left-icons{position:absolute;top:25px;left:20px;display:flex;gap:15px;}
+.left-icons img{width:32px;}
+.service-icon{position:absolute;top:25px;right:25px;text-align:center;}
+.service-icon img{width:38px;margin-bottom:3px;}
+.container{width:90%;max-width:380px;text-align:center;margin-top:50px;padding-bottom:50px;}
+.logo{font-size:75px;font-weight:900;color:#ff7675;letter-spacing:-4px;}
+.page-title{font-size:26px;margin-bottom:30px;}
+.input-group{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:12px;margin-bottom:15px;display:flex;align-items:center;padding:14px 18px;}
+.input-group img{width:22px;margin-right:15px;border-right:1px dashed rgba(255,255,255,.4);padding-right:12px;}
+input{background:transparent;border:none;color:white;outline:none;width:100%;font-size:18px;}
+.eye-btn{cursor:pointer;font-size:20px;margin-left:10px;}
+.btn-main{background:var(--primary-green);border-radius:12px;padding:18px;width:100%;border:none;color:white;font-size:22px;font-weight:bold;cursor:pointer;}
+.btn-sub{background:transparent;border:1px solid rgba(255,255,255,.5);border-radius:35px;padding:14px;width:100%;color:white;margin-top:20px;cursor:pointer;}
+.page{display:none;width:100%;flex-direction:column;align-items:center;}
+.active{display:flex;}
+#langOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;color:#000;display:none;flex-direction:column;z-index:99999;}
+.lang-header{padding:20px;background:#f1f3f4;display:flex;gap:10px;}
+.search-bar{flex:1;padding:15px;border:2px solid #2ecc71;border-radius:10px;font-size:18px;}
+.lang-list{flex:1;overflow-y:auto;}
+.lang-item{display:flex;align-items:center;padding:15px;border-bottom:1px solid #eee;cursor:pointer;}
+.flag{font-size:26px;margin-right:15px;}
+</style>
 </head>
+
 <body>
-    <div class="overlay">
-        <div class="left-icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-        </div>
-        <div class="service-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/126/126432.png">
-            <span id="txt-service">Service</span>
-        </div>
+<div class="overlay">
 
-        <div id="loginPage" class="page active">
-            <div class="container">
-                <div class="logo">VIMO</div>
-                <div class="page-title" id="txt-login-title">Log in</div>
-                <div class="input-group">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
-                    <input type="number" id="lPhone" placeholder="Mobile number">
-                </div>
-                <div class="input-group">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
-                    <input type="password" id="lPass" placeholder="Password">
-                </div>
-                <button class="btn-main" id="txt-login-btn" onclick="handleLogin()">Login Success!</button>
-                <button class="btn-sub" id="txt-goto-reg" onclick="showPage('regPage')">No account? Register</button>
-                <button class="btn-sub" onclick="openLang()">Language / भाषा</button>
-            </div>
-        </div>
+<div class="left-icons">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</div>
 
-        <div id="regPage" class="page">
-            <div class="container">
-                <div class="logo">VIMO</div>
-                <div class="page-title" id="txt-reg-title">Register</div>
-                <div class="input-group">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
-                    <input type="number" id="rPhone" placeholder="Mobile number">
-                </div>
-                <div class="input-group">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
-                    <input type="password" id="rPass" placeholder="Password">
-                </div>
-                <div class="input-group">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
-                    <input type="password" id="rCPass" placeholder="Confirm Password">
-                </div>
-                <div class="input-group">
-                    <img src="https://cdn-icons-png.flaticon.com/512/912/912318.png">
-                    <input type="text" id="invCode" placeholder="Invitation Code">
-                </div>
-                <button class="btn-main" id="txt-reg-btn" onclick="handleRegister()">Register now</button>
-                <button class="btn-sub" id="txt-goto-login" onclick="showPage('loginPage')">Already have account? Log in</button>
-                <button class="btn-sub" onclick="openLang()">Language / भाषा</button>
-            </div>
-        </div>
-    </div>
+<div class="service-icon">
+<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
+<span id="txt-service">Service</span>
+</div>
 
-    <div id="langOverlay">
-        <div class="lang-header">
-            <input type="text" class="search-bar" id="langSearch" placeholder="Search 195+ Countries..." onkeyup="filterLangs()">
-            <button onclick="closeLang()" style="font-size:40px; border:none; background:none;">&times;</button>
-        </div>
-        <div class="lang-list" id="list-container"></div>
-    </div>
+<!-- LOGIN -->
+<div id="loginPage" class="page active">
+<div class="container">
+<div class="logo">VIMO</div>
+<div class="page-title" id="txt-login-title">Log in</div>
 
-    <script>
-        // MANUALLY WRITTEN 195+ COUNTRIES & LANGUAGES
-        const countries = [
-            { n: "Afghanistan", s: "افغانستان", c: "ps", f: "🇦🇫" }, { n: "Albania", s: "Shqipëria", c: "sq", f: "🇦🇱" },
-            { n: "Algeria", s: "الجزائر", c: "ar", f: "🇩🇿" }, { n: "Andorra", s: "Andorra", c: "ca", f: "🇦🇩" },
-            { n: "Angola", s: "Angola", c: "pt", f: "🇦🇴" }, { n: "Antigua and Barbuda", s: "Antigua", c: "en", f: "🇦🇬" },
-            { n: "Argentina", s: "Argentina", c: "es", f: "🇦🇷" }, { n: "Armenia", s: "Հայաստան", c: "hy", f: "🇦🇲" },
-            { n: "Australia", s: "Australia", c: "en", f: "🇦🇺" }, { n: "Austria", s: "Österreich", c: "de", f: "🇦🇹" },
-            { n: "Azerbaijan", s: "Azərbaycan", c: "az", f: "🇦🇿" }, { n: "Bahamas", s: "Bahamas", c: "en", f: "🇧🇸" },
-            { n: "Bahrain", s: "البحرين", c: "ar", f: "🇧🇭" }, { n: "Bangladesh", s: "বাংলাদেশ", c: "bn", f: "🇧🇩" },
-            { n: "Barbados", s: "Barbados", c: "en", f: "🇧🇧" }, { n: "Belarus", s: "Беларусь", c: "be", f: "🇧🇾" },
-            { n: "Belgium", s: "België", c: "nl", f: "🇧🇪" }, { n: "Belize", s: "Belize", c: "en", f: "🇧🇿" },
-            { n: "Benin", s: "Bénin", c: "fr", f: "🇧🇯" }, { n: "Bhutan", s: "འབྲུག་ཡུལ་", c: "dz", f: "🇧🇹" },
-            { n: "Bolivia", s: "Bolivia", c: "es", f: "🇧🇴" }, { n: "Bosnia and Herzegovina", s: "Bosna", c: "bs", f: "🇧🇦" },
-            { n: "Botswana", s: "Botswana", c: "en", f: "🇧🇼" }, { n: "Brazil", s: "Brasil", c: "pt", f: "🇧🇷" },
-            { n: "Brunei", s: "Brunei", c: "ms", f: "🇧🇳" }, { n: "Bulgaria", s: "България", c: "bg", f: "🇧🇬" },
-            { n: "Burkina Faso", s: "Burkina Faso", c: "fr", f: "🇧🇫" }, { n: "Burundi", s: "Burundi", c: "fr", f: "🇧🇮" },
-            { n: "Cambodia", s: "កម្ពុជា", c: "km", f: "🇰🇭" }, { n: "Cameroon", s: "Cameroun", c: "fr", f: "🇨🇲" },
-            { n: "Canada", s: "Canada", c: "en", f: "🇨🇦" }, { n: "Cape Verde", s: "Cabo Verde", c: "pt", f: "🇨🇻" },
-            { n: "Central African Republic", s: "République centrafricaine", c: "fr", f: "🇨🇫" }, { n: "Chad", s: "Tchad", c: "fr", f: "🇹🇩" },
-            { n: "Chile", s: "Chile", c: "es", f: "🇨🇱" }, { n: "China", s: "中国", c: "zh", f: "🇨🇳" },
-            { n: "Colombia", s: "Colombia", c: "es", f: "🇨🇴" }, { n: "Comoros", s: "القمر", c: "ar", f: "🇰🇲" },
-            { n: "Congo (Brazzaville)", s: "Congo", c: "fr", f: "🇨🇬" }, { n: "Congo (Kinshasa)", s: "Congo", c: "sw", f: "🇨🇩" },
-            { n: "Costa Rica", s: "Costa Rica", c: "es", f: "🇨🇷" }, { n: "Croatia", s: "Hrvatska", c: "hr", f: "🇭🇷" },
-            { n: "Cuba", s: "Cuba", c: "es", f: "🇨🇺" }, { n: "Cyprus", s: "Κύπρος", c: "el", f: "🇨🇾" },
-            { n: "Czech Republic", s: "Česko", c: "cs", f: "🇨🇿" }, { n: "Denmark", s: "Danmark", c: "da", f: "🇩🇰" },
-            { n: "Djibouti", s: "Djibouti", c: "fr", f: "🇩🇯" }, { n: "Dominica", s: "Dominica", c: "en", f: "🇩🇲" },
-            { n: "Dominican Republic", s: "República Dominicana", c: "es", f: "🇩🇴" }, { n: "Ecuador", s: "Ecuador", c: "es", f: "🇪🇨" },
-            { n: "Egypt", s: "مصر", c: "ar", f: "🇪🇬" }, { n: "El Salvador", s: "El Salvador", c: "es", f: "🇸🇻" },
-            { n: "Equatorial Guinea", s: "Guinea Ecuatorial", c: "es", f: "🇬🇶" }, { n: "Eritrea", s: "Eritrea", c: "ti", f: "🇪🇷" },
-            { n: "Estonia", s: "Eesti", c: "et", f: "🇪🇪" }, { n: "Eswatini", s: "Eswatini", c: "en", f: "🇸🇿" },
-            { n: "Ethiopia", s: "ኢትዮጵያ", c: "am", f: "🇪🇹" }, { n: "Fiji", s: "Fiji", c: "en", f: "🇫🇯" },
-            { n: "Finland", s: "Suomi", c: "fi", f: "🇫🇮" }, { n: "France", s: "France", c: "fr", f: "🇫🇷" },
-            { n: "Gabon", s: "Gabon", c: "fr", f: "🇬🇦" }, { n: "Gambia", s: "Gambia", c: "en", f: "🇬🇲" },
-            { n: "Georgia", s: "საქართველო", c: "ka", f: "🇬🇪" }, { n: "Germany", s: "Deutschland", c: "de", f: "🇩🇪" },
-            { n: "Ghana", s: "Ghana", c: "en", f: "🇬🇭" }, { n: "Greece", s: "Ελλάδα", c: "el", f: "🇬🇷" },
-            { n: "Grenada", s: "Grenada", c: "en", f: "🇬🇩" }, { n: "Guatemala", s: "Guatemala", c: "es", f: "🇬🇹" },
-            { n: "Guinea", s: "Guinée", c: "fr", f: "🇬🇳" }, { n: "Guinea-Bissau", s: "Guiné-Bissau", c: "pt", f: "🇬🇼" },
-            { n: "Guyana", s: "Guyana", c: "en", f: "🇬🇾" }, { n: "Haiti", s: "Haïti", c: "fr", f: "🇭🇹" },
-            { n: "Honduras", s: "Honduras", c: "es", f: "🇭🇳" }, { n: "Hungary", s: "Magyarország", c: "hu", f: "🇭🇺" },
-            { n: "Iceland", s: "Ísland", c: "is", f: "🇮🇸" }, { n: "India", s: "भारत (India)", c: "hi", f: "🇮🇳" },
-            { n: "Indonesia", s: "Indonesia", c: "id", f: "🇮🇩" }, { n: "Iran", s: "ایران", c: "fa", f: "🇮🇷" },
-            { n: "Iraq", s: "العراق", c: "ar", f: "🇮🇶" }, { n: "Ireland", s: "Ireland", c: "en", f: "🇮🇪" },
-            { n: "Israel", s: "יִשְׂרָאֵל", c: "he", f: "🇮🇱" }, { n: "Italy", s: "Italia", c: "it", f: "🇮🇹" },
-            { n: "Jamaica", s: "Jamaica", c: "en", f: "🇯🇲" }, { n: "Japan", s: "日本 (Japan)", c: "ja", f: "🇯🇵" },
-            { n: "Jordan", s: "الأردن", c: "ar", f: "🇯🇴" }, { n: "Kazakhstan", s: "Қазақстан", c: "kk", f: "🇰🇿" },
-            { n: "Kenya", s: "Kenya", c: "sw", f: "🇰🇪" }, { n: "Kiribati", s: "Kiribati", c: "en", f: "🇰🇮" },
-            { n: "Korea, North", s: "조선", c: "ko", f: "🇰🇵" }, { n: "Korea, South", s: "한국", c: "ko", f: "🇰🇷" },
-            { n: "Kuwait", s: "الكويت", c: "ar", f: "🇰🇼" }, { n: "Kyrgyzstan", s: "Кыргызстан", c: "ky", f: "🇰🇬" },
-            { n: "Laos", s: "ລາວ", c: "lo", f: "🇱🇦" }, { n: "Latvia", s: "Latvija", c: "lv", f: "🇱🇻" },
-            { n: "Lebanon", s: "لبنان", c: "ar", f: "🇱🇧" }, { n: "Lesotho", s: "Lesotho", c: "en", f: "🇱🇸" },
-            { n: "Liberia", s: "Liberia", c: "en", f: "🇱🇷" }, { n: "Libya", s: "ليبيا", c: "ar", f: "🇱🇾" },
-            { n: "Liechtenstein", s: "Liechtenstein", c: "de", f: "🇱🇮" }, { n: "Lithuania", s: "Lietuva", c: "lt", f: "🇱🇹" },
-            { n: "Luxembourg", s: "Luxembourg", c: "lb", f: "🇱🇺" }, { n: "Madagascar", s: "Madagasikara", c: "mg", f: "🇲🇬" },
-            { n: "Malawi", s: "Malawi", c: "en", f: "🇲🇼" }, { n: "Malaysia", s: "Malaysia", c: "ms", f: "🇲🇾" },
-            { n: "Maldives", s: "ދިވެހިރާއްޖެ", c: "dv", f: "🇲🇻" }, { n: "Mali", s: "Mali", c: "fr", f: "🇲🇱" },
-            { n: "Malta", s: "Malta", c: "mt", f: "🇲🇹" }, { n: "Marshall Islands", s: "Marshall Islands", c: "en", f: "🇲🇭" },
-            { n: "Mauritania", s: "موريتانيا", c: "ar", f: "🇲🇷" }, { n: "Mauritius", s: "Maurice", c: "fr", f: "🇲🇺" },
-            { n: "Mexico", s: "México", c: "es", f: "🇲🇽" }, { n: "Micronesia", s: "Micronesia", c: "en", f: "🇫🇲" },
-            { n: "Moldova", s: "Moldova", c: "ro", f: "🇲🇩" }, { n: "Monaco", s: "Monaco", c: "fr", f: "🇲🇨" },
-            { n: "Mongolia", s: "Монгол", c: "mn", f: "🇲🇳" }, { n: "Montenegro", s: "Crna Gora", c: "cnr", f: "🇲🇪" },
-            { n: "Morocco", s: "المغرب", c: "ar", f: "🇲🇦" }, { n: "Mozambique", s: "Moçambique", c: "pt", f: "🇲🇿" },
-            { n: "Myanmar", s: "မြန်မာ", c: "my", f: "🇲🇲" }, { n: "Namibia", s: "Namibia", c: "en", f: "🇳🇦" },
-            { n: "Nauru", s: "Naoero", c: "na", f: "🇳🇷" }, { n: "Nepal", s: "नेपाल (Nepal)", c: "ne", f: "🇳🇵" },
-            { n: "Netherlands", s: "Nederland", c: "nl", f: "🇳🇱" }, { n: "New Zealand", s: "New Zealand", c: "en", f: "🇳🇿" },
-            { n: "Nicaragua", s: "Nicaragua", c: "es", f: "🇳🇮" }, { n: "Niger", s: "Niger", c: "fr", f: "🇳🇪" },
-            { n: "Nigeria", s: "Nigeria", c: "en", f: "🇳🇬" }, { n: "North Macedonia", s: "Северна Македонија", c: "mk", f: "🇲🇰" },
-            { n: "Norway", s: "Norge", c: "no", f: "🇳🇴" }, { n: "Oman", s: "عمان", c: "ar", f: "🇴🇲" },
-            { n: "Pakistan", s: "پاکستان (Pakistan)", c: "ur", f: "🇵🇰" }, { n: "Palau", s: "Palau", c: "en", f: "🇵🇼" },
-            { n: "Panama", s: "Panamá", c: "es", f: "🇵🇦" }, { n: "Papua New Guinea", s: "Papua New Guinea", c: "en", f: "🇵🇬" },
-            { n: "Paraguay", s: "Paraguay", c: "es", f: "🇵🇾" }, { n: "Peru", s: "Perú", c: "es", f: "🇵🇪" },
-            { n: "Philippines", s: "Pilipinas", c: "tl", f: "🇵🇭" }, { n: "Poland", s: "Polska", c: "pl", f: "🇵🇱" },
-            { n: "Portugal", s: "Portugal", c: "pt", f: "🇵🇹" }, { n: "Qatar", s: "قطر", c: "ar", f: "🇶🇦" },
-            { n: "Romania", s: "România", c: "ro", f: "🇷🇴" }, { n: "Russia", s: "Россия", c: "ru", f: "🇷🇺" },
-            { n: "Rwanda", s: "Rwanda", c: "rw", f: "🇷🇼" }, { n: "Saint Kitts and Nevis", s: "Saint Kitts", c: "en", f: "🇰🇳" },
-            { n: "Saint Lucia", s: "Saint Lucia", c: "en", f: "🇱🇨" }, { n: "Saint Vincent", s: "Saint Vincent", c: "en", f: "🇻🇨" },
-            { n: "Samoa", s: "Samoa", c: "sm", f: "🇼🇸" }, { n: "San Marino", s: "San Marino", c: "it", f: "🇸🇲" },
-            { n: "Sao Tome and Principe", s: "São Tomé", c: "pt", f: "🇸🇹" }, { n: "Saudi Arabia", s: "السعودية", c: "ar", f: "🇸🇦" },
-            { n: "Senegal", s: "Sénégal", c: "fr", f: "🇸🇳" }, { n: "Serbia", s: "Србија", c: "sr", f: "🇷🇸" },
-            { n: "Seychelles", s: "Seychelles", c: "fr", f: "🇸🇨" }, { n: "Sierra Leone", s: "Sierra Leone", c: "en", f: "🇸🇱" },
-            { n: "Singapore", s: "Singapore", c: "en", f: "🇸🇬" }, { n: "Slovakia", s: "Slovensko", c: "sk", f: "🇸🇰" },
-            { n: "Slovenia", s: "Slovenija", c: "sl", f: "🇸🇮" }, { n: "Solomon Islands", s: "Solomon Islands", c: "en", f: "🇸🇧" },
-            { n: "Somalia", s: "Soomaaliya", c: "so", f: "🇸🇴" }, { n: "South Africa", s: "South Africa", c: "en", f: "🇿🇦" },
-            { n: "South Sudan", s: "South Sudan", c: "en", f: "🇸🇸" }, { n: "Spain", s: "España", c: "es", f: "🇪🇸" },
-            { n: "Sri Lanka", s: "ශ්‍රී ලංකාව", c: "si", f: "🇱🇰" }, { n: "Sudan", s: "السودان", c: "ar", f: "🇸🇩" },
-            { n: "Suriname", s: "Suriname", c: "nl", f: "🇸🇷" }, { n: "Sweden", s: "Sverige", c: "sv", f: "🇸🇪" },
-            { n: "Switzerland", s: "Schweiz", c: "de", f: "🇨🇭" }, { n: "Syria", s: "سوريا", c: "ar", f: "🇸🇾" },
-            { n: "Taiwan", s: "台灣", c: "zh", f: "🇹🇼" }, { n: "Tajikistan", s: "Тоҷикистон", c: "tg", f: "🇹🇯" },
-            { n: "Tanzania", s: "Tanzania", c: "sw", f: "🇹🇿" }, { n: "Thailand", s: "ไทย", c: "th", f: "🇹🇭" },
-            { n: "Timor-Leste", s: "Timor-Leste", c: "pt", f: "🇹🇱" }, { n: "Togo", s: "Togo", c: "fr", f: "🇹🇬" },
-            { n: "Tonga", s: "Tonga", c: "en", f: "🇹🇴" }, { n: "Trinidad and Tobago", s: "Trinidad", c: "en", f: "🇹🇹" },
-            { n: "Tunisia", s: "تونس", c: "ar", f: "🇹🇳" }, { n: "Turkey", s: "Türkiye", c: "tr", f: "🇹🇷" },
-            { n: "Turkmenistan", s: "Türkmenistan", c: "tk", f: "🇹🇲" }, { n: "Tuvalu", s: "Tuvalu", c: "en", f: "🇹🇻" },
-            { n: "Uganda", s: "Uganda", c: "sw", f: "🇺🇬" }, { n: "Ukraine", s: "Україна", c: "uk", f: "🇺🇦" },
-            { n: "UAE", s: "الإمارات", c: "ar", f: "🇦🇪" }, { n: "UK", s: "United Kingdom", c: "en", f: "🇬🇧" },
-            { n: "USA", s: "United States", c: "en", f: "🇺🇸" }, { n: "Uruguay", s: "Uruguay", c: "es", f: "🇺🇾" },
-            { n: "Uzbekistan", s: "Oʻzbekiston", c: "uz", f: "🇺🇿" }, { n: "Vanuatu", s: "Vanuatu", c: "bi", f: "🇻🇺" },
-            { n: "Vatican City", s: "Vaticano", c: "it", f: "🇻🇦" }, { n: "Venezuela", s: "Venezuela", c: "es", f: "🇻🇪" },
-            { n: "Vietnam", s: "Việt Nam", c: "vi", f: "🇻🇳" }, { n: "Yemen", s: "اليمن", c: "ar", f: "🇾🇪" },
-            { n: "Zambia", s: "Zambia", c: "en", f: "🇿🇲" }, { n: "Zimbabwe", s: "Zimbabwe", c: "en", f: "🇿🇼" }
-        ];
+<div class="input-group">
+<img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+<input type="number" id="lPhone" placeholder="Mobile number">
+</div>
 
-        const dict = {
-            "en": { s: "Service", lT: "Log in", lB: "Login Success!", gR: "No account? Register", rT: "Register", rB: "Register now", gL: "Already have account? Log in", pM: "Mobile number", pP: "Password", pI: "Invitation Code" },
-            "hi": { s: "सेवा", lT: "लॉग इन", lB: "सफल!", gR: "खाता नहीं है? रजिस्टर", rT: "रजिस्टर", rB: "अभी रजिस्टर करें", gL: "पहले से खाता है? लॉग इन", pM: "मोबाइल नंबर", pP: "पासवर्ड", pI: "कोड" },
-            "ar": { s: "خدمة", lT: "تسجيل", lB: "نجاح!", gR: "حساب جديد", rT: "تسجيل", rB: "سجل", gL: "لديك حساب؟", pM: "رقم", pP: "كلمة", pI: "رمز" },
-            "zh": { s: "服务", lT: "登录", lB: "成功", gR: "注册", rT: "注册", rB: "注册", gL: "登录", pM: "手机号", pP: "密码", pI: "邀请码" },
-            "es": { s: "Servicio", lT: "Entrar", lB: "Éxito", gR: "Registro", rT: "Registro", rB: "Registrar", gL: "Entrar", pM: "Móvil", pP: "Clave", pI: "Código" },
-            "fr": { s: "Service", lT: "Connexion", lB: "Succès", gR: "S'inscrire", rT: "S'inscrire", rB: "S'inscrire", gL: "Connexion", pM: "Mobile", pP: "Pass", pI: "Code" },
-            "ru": { s: "Сервис", lT: "Вход", lB: "Успех!", gR: "Регистрация", rT: "Регистрация", rB: "Регистрация", gL: "Вход", pM: "Телефон", pP: "Пароль", pI: "Код" },
-            "ja": { s: "サービス", lT: "ログイン", lB: "成功", gR: "登録", rT: "登録", rB: "登録", gL: "ログイン", pM: "番号", pP: "パス", pI: "コード" },
-            "pt": { s: "Serviço", lT: "Entrar", lB: "Sucesso", gR: "Registrar", rT: "Registro", rB: "Registrar", gL: "Entrar", pM: "Telemóvel", pP: "Senha", pI: "Código" },
-            "bn": { s: "সেবা", lT: "লগ ইন", lB: "সফল", gR: "নিবন্ধন", rT: "নিবন্ধন", rB: "নিবন্ধন", gL: "লগ ইন", pM: "মোবাইল", pP: "পাসওয়ার্ড", pI: "কোড" },
-            "ne": { s: "सेवा", lT: "लगइन", lB: "सफल", gR: "दर्ता", rT: "दर्ता", rB: "दर्ता", gL: "लगइन", pM: "मोबाइल", pP: "पासवर्ड", pI: "कोड" },
-            "ur": { s: "سروس", lT: "لاگ ان", lB: "کامیاب", gR: "رجسٹر", rT: "رجسٹر", rB: "رجسٹر", gL: "لاگ ان", pM: "موبائل", pP: "پاس ورڈ", pI: "کوڈ" },
-            "sw": { s: "Huduma", lT: "Ingia", lB: "Mafanikio", gR: "Sajili", rT: "Sajili", rB: "Sajili Sasa", gL: "Ingia", pM: "Simu", pP: "Nywila", pI: "Nambari" }
-    "ps": { s: "خدمت", lT: "ننوتل", lB: "بریالی!", gR: "نوم لیکنه", rT: "نوم لیکنه", rB: "ثبت نام", gL: "ننوتل", pM: "شمیره", pP: "پټ نوم", pI: "کوډ" }, 
-    "my": { s: "ဝန်ဆောင်မှု", lT: "လော့ဂ်အင်", lB: "အောင်မြင်သည်!", gR: "အကောင့်ဖွင့်ရန်", rT: "မှတ်ပုံတင်ရန်", rB: "မှတ်ပုံတင်ပါ", gL: "လော့ဂ်အင်", pM: "ဖုန်းနံပါတ်", pP: "စကားဝှက်", pI: "ကုဒ်" },
-    "th": { s: "บริการ", lT: "เข้าสู่ระบบ", lB: "สำเร็จ!", gR: "สมัครสมาชิก", rT: "ลงทะเบียน", rB: "ลงทะเบียนตอนนี้", gL: "เข้าสู่ระบบ", pM: "เบอร์มือถือ", pP: "รหัสผ่าน", pI: "รหัสเชิญ" },
-    "vi": { s: "Dịch vụ", lT: "Đăng nhập", lB: "Thành công!", gR: "Đăng ký", rT: "Đăng ký", rB: "Đăng ký ngay", gL: "Đăng nhập", pM: "Số điện thoại", pP: "Mật khẩu", pI: "Mã mời" },
-    "tr": { s: "Hizmet", lT: "Giriş", lB: "Başarılı!", gR: "Kayıt", rT: "Kayıt", rB: "Kayıt Ol", gL: "Giriş", pM: "Telefon", pP: "Şifre", pI: "Kod" },
-    "fa": { s: "سرویس", lT: "ورود", lB: "موفقیت!", gR: "ثبت نام", rT: "ثبت نام", rB: "ثبت نام", gL: "ورود", pM: "موبایل", pP: "رمز", pI: "کد" },
-    "ur": { s: "سروس", lT: "لاگ ان", lB: "کامیاب!", gR: "رجسٹر", rT: "رجسٹر", rB: "رجسٹر", gL: "لاگ ان", pM: "موبائل", pP: "پاس ورڈ", pI: "کوڈ" },
-    "bn": { s: "সেবা", lT: "লগ ইন", lB: "সফল", gR: "নিবন্ধন", rT: "নিবন্ধন", rB: "নিবন্ধন", gL: "লগ ইন", pM: "মোবাইল", pP: "পাসওয়ার্ড", pI: "কোড" },
-    "tl": { s: "Serbisyo", lT: "Mag-login", lB: "Tagumpay!", gR: "Mag-register", rT: "Mag-register", rB: "Register ngayon", gL: "Mag-login", pM: "Numero", pP: "Password", pI: "Code" },
-    "mn": { s: "Үйлчилгээ", lT: "Нэвтрэх", lB: "Амжилттай!", gR: "Бүртгүүлэх", rT: "Бүртгэл", rB: "Одоо бүртгүүлэх", gL: "Нэвтрэх", pM: "Утас", pP: "Нуუц үг", pI: "Код" },
-    "kk": { s: "Қызмет", lT: "Кіру", lB: "Сәтті!", gR: "Тіркелу", rT: "Тіркелу", rB: "Қазір тіркелу", gL: "Кіру", pM: "Телефон", pP: "Құпия сөз", pI: "Код" },
-    "is": { s: "Þjónusta", lT: "Skrá inn", lB: "Árangur!", gR: "Nýskráning", rT: "Nýskráning", rB: "Skrá núna", gL: "Skrá inn", pM: "Símanúmer", pP: "Lykilorð", pI: "Kóði" },
-    "et": { s: "Teenus", lT: "Logi sisse", lB: "Edukas!", gR: "Registreeru", rT: "Registreerimine", rB: "Registreeru kohe", gL: "Logi sisse", pM: "Telefon", pP: "Parool", pI: "Kood" },
-    "lv": { s: "Pakalpojums", lT: "Ienākt", lB: "Veiksmīgi!", gR: "Reģistrēties", rT: "Reģistrācija", rB: "Reģistrēties tagad", gL: "Ienākt", pM: "Tālrunis", pP: "Parole", pI: "Kods" },
-    "lt": { s: "Paslauga", lT: "Prisijungti", lB: "Sėkmingai!", gR: "Registruotis", rT: "Registracija", rB: "Registruotis dabar", gL: "Prisijungti", pM: "Telefonas", pP: "Slaptažodis", pI: "Kodas" },
-    "sr": { s: "Услуга", lT: "Пријава", lB: "Успешно!", gR: "Регистрација", rT: "Регистрација", rB: "Региструј се", gL: "Пријава", pM: "Телефон", pP: "Лозинка", pI: "Код" },
-    "hr": { s: "Usluga", lT: "Prijava", lB: "Uspješno!", gR: "Registracija", rT: "Registracija", rB: "Registriraj se", gL: "Prijava", pM: "Mobitel", pP: "Lozinka", pI: "Kod" },
-    "sk": { s: "Služba", lT: "Prihlásiť", lB: "Úspěšne!", gR: "Registrácia", rT: "Registrácia", rB: "Registrovať", gL: "Prihlásiť", pM: "Telefón", pP: "Heslo", pI: "Kód" },
-    "sl": { s: "Storitev", lT: "Prijava", lB: "Uspešno!", gR: "Registracija", rT: "Registracija", rB: "Registriraj se", gL: "Prijava", pM: "Telefon", pP: "Geslo", pI: "Koda" },
-    "mk": { s: "Услуга", lT: "Најава", lB: "Успешно!", gR: "Регистрација", rT: "Регистрација", rB: "Регистрирај се", gL: "Најава", pM: "Телефон", pP: "Лозинка", pI: "Код" },
-    "mg": { s: "Tolotra", lT: "Hiditra", lB: "Tafita!", gR: "Hisoratra", rT: "Fisoratana", rB: "Hisoratra anarana", gL: "Hiditra", pM: "Finday", pP: "Teny miafina", pI: "Kaody" },
-    "so": { s: "Adeegga", lT: "Soo gal", lB: "Guul!", gR: "Isku qor", rT: "Isku qorista", rB: "Isku qor hadda", gL: "Soo gal", pM: "Telefan", pP: "Erayga sirta", pI: "Koodka" },
-    "dv": { s: "ޚިދުމަތް", lT: "ލޮގިން", lB: "ކާމިޔާބު!", gR: "ރަޖިސްޓްރީ", rT: "ރަޖިސްޓްރީ", rB: "ރަޖިސްޓްރީ ކުރޭ", gL: "ލޮගިން", pM: "ފޯނު", pP: "ޕާސްވޯޑް", pI: "ކޯޑް" },
-    "am": { s: "አገልግሎት", lT: "ይግቡ", lB: "ተሳክቷል!", gR: "ይመዝገቡ", rT: "ምዝገባ", rB: "አሁን ይመዝገቡ", gL: "ይግቡ", pM: "ስልክ", pP: "የይለፍ ቃል", pI: "ኮድ" },
-    "rw": { s: "Serivisi", lT: "Injira", lB: "Byakunze!", gR: "Iyandikishe", rT: "Kwiyandikisha", rB: "Iyandikishe nonaha", gL: "Injira", pM: "Telefone", pP: "Ijambo ry'ibanga", pI: "Icodes" }
-        
-        };
+<div class="input-group">
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
+<input type="password" id="lPass" placeholder="Password">
+<span class="eye-btn" onclick="togglePass('lPass',this)">👁</span>
+</div>
 
-        function setLanguage(c) {
-            const l = dict[c] || dict["en"];
-            document.getElementById('txt-service').innerText = l.s;
-            document.getElementById('txt-login-title').innerText = l.lT;
-            document.getElementById('txt-login-btn').innerText = l.lB;
-            document.getElementById('txt-goto-reg').innerText = l.gR;
-            document.getElementById('txt-reg-title').innerText = l.rT;
-            document.getElementById('txt-reg-btn').innerText = l.rB;
-            document.getElementById('txt-goto-login').innerText = l.gL;
-            
-            const ids = { 'lPhone': 'pM', 'rPhone': 'pM', 'lPass': 'pP', 'rPass': 'pP', 'rCPass': 'pP', 'invCode': 'pI' };
-            for(let key in ids) { 
-                let el = document.getElementById(key);
-                if(el) el.placeholder = l[ids[key]];
-            }
-            localStorage.setItem('vimoLang', c);
-            closeLang();
-            // YE LOGIC USER KI LANGUAGE KO HAR PAGE PAR YAAD RAKHEGA
-window.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('vimoLang') || 'en';
-    
-    // Agar login page hai to setLanguage chalao
-    if (typeof setLanguage === "function") {
-        setLanguage(savedLang);
-    }
-    
-    // AGAR AAP DUSRE PAGES (HOME.HTML) PAR BHI YAHI CHAHTE HAIN:
-    // To home.html ke script mein bhi yahi savedLang wala hissa dalna hoga.
+<button class="btn-main" id="txt-login-btn" onclick="handleLogin()">Login</button>
+<button class="btn-sub" id="txt-goto-reg" onclick="showPage('regPage')">No account? Register</button>
+<button class="btn-sub" onclick="openLang()">Language / भाषा</button>
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="regPage" class="page">
+<div class="container">
+<div class="logo">VIMO</div>
+<div class="page-title" id="txt-reg-title">Register</div>
+
+<div class="input-group">
+<img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+<input type="number" id="rPhone" placeholder="Mobile number">
+</div>
+
+<div class="input-group">
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
+<input type="password" id="rPass" placeholder="Password">
+</div>
+
+<div class="input-group">
+<img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png">
+<input type="password" id="rCPass" placeholder="Confirm Password">
+</div>
+
+<div class="input-group">
+<img src="https://cdn-icons-png.flaticon.com/512/912/912318.png">
+<input type="text" id="invCode" placeholder="Invitation Code">
+</div>
+
+<button class="btn-main" id="txt-reg-btn" onclick="handleRegister()">Register now</button>
+<button class="btn-sub" id="txt-goto-login" onclick="showPage('loginPage')">Already have account? Log in</button>
+<button class="btn-sub" onclick="openLang()">Language / भाषा</button>
+</div>
+</div>
+
+</div>
+
+<!-- LANGUAGE -->
+<div id="langOverlay">
+<div class="lang-header">
+<input class="search-bar" id="langSearch" onkeyup="filterLangs()" placeholder="Search country...">
+<button onclick="closeLang()" style="font-size:30px;background:none;border:none;">×</button>
+</div>
+<div class="lang-list" id="list-container"></div>
+</div>
+
+<script>
+const dict = {
+en:{s:"Service",lT:"Log in",lB:"Login",gR:"No account? Register",rT:"Register",rB:"Register now",gL:"Already have account? Log in",pM:"Mobile number",pP:"Password",pI:"Invitation Code"},
+hi:{s:"सेवा",lT:"लॉग इन",lB:"लॉग इन",gR:"खाता नहीं? रजिस्टर",rT:"रजिस्टर",rB:"अभी रजिस्टर करें",gL:"पहले से खाता? लॉग इन",pM:"मोबाइल",pP:"पासवर्ड",pI:"कोड"}
+};
+
+function setLanguage(c){
+const l=dict[c]||dict.en;
+txt-service.innerText=l.s;
+txt-login-title.innerText=l.lT;
+txt-login-btn.innerText=l.lB;
+txt-goto-reg.innerText=l.gR;
+txt-reg-title.innerText=l.rT;
+txt-reg-btn.innerText=l.rB;
+txt-goto-login.innerText=l.gL;
+lPhone.placeholder=l.pM;
+rPhone.placeholder=l.pM;
+lPass.placeholder=l.pP;
+rPass.placeholder=l.pP;
+rCPass.placeholder=l.pP;
+invCode.placeholder=l.pI;
+localStorage.setItem("vimoLang",c);
+closeLang();
+}
+
+window.addEventListener("DOMContentLoaded",()=>{
+setLanguage(localStorage.getItem("vimoLang")||"en");
 });
 
-        }
+function togglePass(id,el){
+const i=document.getElementById(id);
+i.type=i.type==="password"?"text":"password";
+el.textContent=i.type==="password"?"👁":"🙈";
+}
 
-        function renderLangs(list) {
-            document.getElementById('list-container').innerHTML = list.map(x => `
-                <div class="lang-item" onclick="setLanguage('${x.c}')">
-                    <span class="flag">${x.f}</span>
-                    <span style="font-weight:bold">${x.s}</span> &nbsp; <span style="color:#666; font-size:14px">(${x.n})</span>
-                </div>
-            `).join('');
-        }
+function showPage(p){
+document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+document.getElementById(p).classList.add("active");
+}
 
-        function filterLangs() {
-            const q = document.getElementById('langSearch').value.toLowerCase();
-            renderLangs(countries.filter(x => x.n.toLowerCase().includes(q) || x.s.toLowerCase().includes(q)));
-        }
+function handleLogin(){
+if(lPhone.value) location.href="home.html";
+}
 
-        function showPage(p) {
-            document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
-            document.getElementById(p).classList.add('active');
-        }
+function handleRegister(){
+alert("Register Success!");
+showPage("loginPage");
+}
 
-        function openLang() { document.getElementById('langOverlay').style.display = 'flex'; renderLangs(countries); }
-        function closeLang() { document.getElementById('langOverlay').style.display = 'none'; }
-        function handleLogin() { if(document.getElementById('lPhone').value) window.location.href = 'home.html'; }
-        function handleRegister() { alert("Register Success!"); showPage('loginPage'); }
+function openLang(){langOverlay.style.display="flex";}
+function closeLang(){langOverlay.style.display="none";}
+</script>
 
-    </script>
 </body>
 </html>
